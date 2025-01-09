@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div>
+        <h2>Crear Vehiculo</h2>
+        <input list="modelo" id="modeloVehiculo" name="modeloVehiculo" />
+        <datalist id="modelo">
+        </datalist><br>
+        <input type="number" name="" placeholder="minVelocidad" id="minVel"><br>
+        <input type="number" name="" placeholder="maxVelocidad" id="maxVel"><br>
+        <select name="tipoTraccion" id="tipoTraccion" placeholder="Tipo Traccion">
+            <option value="Suave">Suave</option>
+        </select><br>
+
+        <select name="tipoVehiculo" id="tipoVehiculo" placeholder="Tipo Vehiculo">
+            <option value="coche" selected>coche</option>
+            <option value="motocicleta">motocicleta</option>
+        </select><br>
+        <button type="button" id="nuevoVehiculo">Nuevo Vehiculo</button>
+        <button type="button">Cargar Estadisticas </button>
+        <div id="divMessage"></div>
+
+
+    </div>
+    <div>
+        <h2>Gestion de Participantes</h2>
+        <input type="text" placeholder="Nombre"><br>
+        <select name="" id="" placeholder="Vehiculo"></select><br>
+        <input type="text" placeholder="Estadisticas"><br>
+        <button type="button">Nuevo Vehiculo</button>
+        <button type="button">Cargar Estadisticas </button>
+
+    </div>
+
+
+</body>
+
+</html>
