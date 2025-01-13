@@ -1,4 +1,4 @@
-class Vehiculo {
+export class Vehiculo {
     #modelo;
     #traccion;
     #avanceMin;
@@ -21,11 +21,11 @@ class Vehiculo {
         }
     }
 
-    get modelo() {
+    get getModelo() {
         return this.#modelo;
     }
 
-    set modelo(nuevoModelo) {
+    set setModelo(nuevoModelo) {
         this.#modelo = nuevoModelo;
     }
 
@@ -47,13 +47,4 @@ class Vehiculo {
     set avanceMax(nuevoAvanceMax) {
         this.#avanceMax = nuevoAvanceMax;
     }
-
-
-
-
-
-
-
-
-
 }
