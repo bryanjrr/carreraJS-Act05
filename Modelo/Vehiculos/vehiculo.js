@@ -3,10 +3,14 @@ export class Vehiculo {
     #traccion;
     #avanceMin;
     #avanceMax;
+    #tipoVehiculo;
 
-    constructor(modelo, traccion, avanceMin, avanceMax) {
+    constructor(modelo, traccion, avanceMin, avanceMax, tipovehiculo) {
         this.#modelo = modelo;
         this.#traccion = traccion;
+        this.#tipoVehiculo = tipovehiculo;
+
+
 
         if (avanceMin < 1 && avanceMin > 50) {
             throw new Error("La velocidad minima del vehiculo tiene que ser superior a 0")
@@ -19,6 +23,8 @@ export class Vehiculo {
         } else {
             this.#avanceMax = avanceMax;
         }
+
+
     }
 
     get getModelo() {
@@ -46,5 +52,9 @@ export class Vehiculo {
     }
     set avanceMax(nuevoAvanceMax) {
         this.#avanceMax = nuevoAvanceMax;
+    }
+
+    movimiento() {
+        let movimiento = Math.floor(Math.random() * super.avanceMax) + super.avanceMin;
     }
 }
