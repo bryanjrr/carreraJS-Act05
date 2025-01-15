@@ -1,9 +1,10 @@
 import { Vehiculo } from "./vehiculo.js";
+import { Circuito } from "../Pista/circuito.js";
 
 export class motocicleta extends Vehiculo {
 
 
-   movimiento() {
+    movimiento() {
         let movimiento = Math.floor(Math.random() * super.avanceMax) + super.avanceMin;
         console.log("movimiento: " + movimiento)
         switch (super.traccion) {
@@ -20,8 +21,30 @@ export class motocicleta extends Vehiculo {
         return movimiento;
     }
 
-    controlSuelo(){
-        
+    controlSuelo(pista) {
+        if (pista instanceof Circuito) {
+            let caer = 0;
+            let caerSuelo;
+
+            if (pista.getTiempo() == "lluvioso" && this.traccion == "dura") {
+                caer = 30;
+            } else if (pista.getTiempo() == "media" && this.traccion == "media" || this.traccion == "dura") {
+                caer = 20;
+            } else if (pista.getTiempo() == "humedo" && this.traccion == "media") {
+                caer = 10;
+            } else {
+                caer = 5;
+            }
+            probabilidad = Math.floor(Math.random() * 100) + 1;
+            if (probabilidad < caer) {
+                caerSuelo = false;
+            } else {
+                console.log("El vehiculo se ha caido");
+                caerSuelo = true;
+            }
+
+            return caerSuelo;
+        }
     }
 
 
