@@ -14,10 +14,14 @@
         <input list="modelo" id="modeloVehiculo" name="modeloVehiculo" />
         <datalist id="modelo">
         </datalist><br>
+
+        
         <input type="number" name="" placeholder="minVelocidad" id="minVel"><br>
         <input type="number" name="" placeholder="maxVelocidad" id="maxVel"><br>
         <select name="tipoTraccion" id="tipoTraccion" placeholder="Tipo Traccion">
-            <option value="Suave">Suave</option>
+            <option value="blanda">Blanda</option>
+            <option value="media">Media</option>
+            <option value="dura">Dura</option>
         </select><br>
 
         <select name="tipoVehiculo" id="tipoVehiculo" placeholder="Tipo Vehiculo">
@@ -32,10 +36,12 @@
     </div>
     <div>
         <h2>Gestion de Participantes</h2>
-        <input type="text" placeholder="Nombre"><br>
-        <select name="" id="" placeholder="Vehiculo"></select><br>
-        <input type="text" placeholder="Estadisticas"><br>
-        <button type="button">Nuevo Vehiculo</button>
+        <input type="text" id="nombreParticipante" placeholder="Nombre"><br>
+        <select name="" id="vehiculoParticipante" placeholder="Vehiculo">
+            <option value="prueba">prueba</option>
+        </select><br>
+        <input id="estadisticasParticipante" type="text" placeholder="Estadisticas"><br>
+        <button id="btnNuevoParticipante" type="button">Nuevo Participante</button>
         <button type="button">Cargar Estadisticas </button>
     </div>
 
@@ -50,9 +56,21 @@
         </select><br>
         <button id="nuevaCarrera" type="button">Nueva Carrera</button>
         <div id="divMessageCircuito"></div>
-
     </div>
 
+    <div>
+        <h2>Asigna/Quitar un participante al Circuito</h2>
+
+        <select name="asignarCircuito" id="asignarCircuito" placeholder="Circuito">
+
+        </select><br>
+
+        <select name="asignarParticipante" id="asignarParticipante" placeholder="asignarParticipante">
+        </select><br>
+        <button id="btnAsignar" type="button">Asignar</button>
+        <button id="btnQuitar" type="button">Quitar</button>
+        <div id="divMessageCircuito"></div>
+    </div>
 </body>
 
 </html>

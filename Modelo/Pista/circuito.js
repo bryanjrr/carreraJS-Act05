@@ -14,7 +14,6 @@ export class Circuito {
         }
     }
 
-
     get getNombre() {
         return this.#nombre;
     }

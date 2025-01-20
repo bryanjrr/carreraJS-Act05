@@ -1,7 +1,7 @@
-import { Vehiculo } from "./vehiculo.js";
-import { Circuito } from "../Pista/circuito.js";
+import { Vehiculo } from "./Vehiculo.js";
+import { Circuito } from "../Pista/Circuito.js";
 
-export class motocicleta extends Vehiculo {
+export class Motocicleta extends Vehiculo {
 
 
     movimiento() {
