@@ -10,9 +10,8 @@ export class Coche extends Vehiculo {
         console.log("movimiento: " + movimiento)
 
         if (circuito instanceof Circuito) {
-            
             const modificadores = {
-            "lluvioso": { "blanda": 4, "media": 2, "dura": 0 },
+                "lluvioso": { "blanda": 4, "media": 2, "dura": 0 },
                 "humedo": { "blanda": 2, "media": 2, "dura": 2 },
                 "seco": { "blanda": 0, "media": 2, "dura": 4 }
             }

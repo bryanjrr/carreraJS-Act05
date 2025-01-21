@@ -2,14 +2,15 @@
 /* Recoger Valores Coche */
 import { Coche } from "../Modelo/Vehiculos/Coche.js";
 import { Vehiculo } from "../Modelo/Vehiculos/Vehiculo.js";
-import { Motocicleta } from "../Modelo/Vehiculos/Motocicleta.js";
-/* import { Coche } from "../Modelo/Vehiculos/coche.js";
+import { Participante } from "../Modelo/Participantes/Participante.js";
+import { Motocicleta } from "../Modelo/Vehiculos/motocicleta.js";/* import { Coche } from "../Modelo/Vehiculos/coche.js";
  */
 import { Circuito } from "../Modelo/Pista/Circuito.js";
 
 document.getElementById("btnVehiculo").addEventListener("click", nuevoVehiculo);
 
 let vehiculos = [];
+let participantes = [];
 
 function nuevoVehiculo() {
     let divError = document.getElementById("divMessage");
@@ -27,13 +28,12 @@ function nuevoVehiculo() {
             case "coche":
                 let coche = new Coche(modelo, tipoTraccion, min, max, tipoVehiculo)
                 vehiculos.push(coche)
-                actualizarSelect(vehiculos)
+                actualizarSelect(vehiculos, vehiculoParticipante)
                 break;
             case "motocicleta":
                 let moto = new Motocicleta(modelo, tipoTraccion, min, max, tipoVehiculo);
                 console.log(moto)
-                vehiculos.push(moto)
-                actualizarSelect(vehiculos)
+                actualizarSelect(vehiculos, vehiculoParticipante)
                 moto.movimiento();
                 break;
         }
@@ -48,16 +48,14 @@ function nuevoVehiculo() {
     }
 }
 
-function actualizarSelect(array) {
-    let select = document.getElementById("vehiculoParticipante");
+function actualizarSelect(array, select) {
     select.innerHTML = "";
-
-    array.forEach(element => {
-        console.log(element)
-        console.log(element.modelo)
+    array.forEach((element) => {
+        if (element instanceof Participante) {
+            select.innerHTML += "<option value=" + element.modelo + ">" + element.nombre + " | " + element.vehiculo + "</option>";
+        }else{}
         select.innerHTML += "<option value=" + element.modelo + ">" + element.modelo + "</option>";
     });
-    console.log(select)
 }
 
 document.getElementById("nuevaCarrera").addEventListener("click", function () {
@@ -82,10 +80,22 @@ document.getElementById("nuevaCarrera").addEventListener("click", function () {
 
 })
 
+/* Gestion Participante */
+
+/* Crear */
+document.getElementById("btnNuevoParticipante").addEventListener("click", nuevoParticipante);
 
 function nuevoParticipante() {
 
     let nombre = document.getElementById("nombreParticipante");
+
+    let vehiculo = document.getElementById("vehiculoParticipante");
+
+    let participante = new Participante(nombre, vehiculo, null)
+
+    participantes.push(participante);
+
+    actualizarSelect(participantes, asignarParticipante)
 
 
 

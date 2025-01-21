@@ -2,8 +2,6 @@ import { Vehiculo } from "./Vehiculo.js";
 import { Circuito } from "../Pista/Circuito.js";
 
 export class Motocicleta extends Vehiculo {
-
-
     movimiento() {
         let movimiento = Math.floor(Math.random() * super.avanceMax) + super.avanceMin;
         console.log("movimiento: " + movimiento)
@@ -17,7 +15,6 @@ export class Motocicleta extends Vehiculo {
                 console.log("Con traccion mediana: " + movimiento)
                 break;
         }
-
         return movimiento;
     }
 

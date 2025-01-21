@@ -24,11 +24,11 @@ export class Vehiculo {
 
     }
 
-    get getModelo() {
+    get modelo() {
         return this.#modelo;
     }
 
-    set setModelo(nuevoModelo) {
+    set modelo(nuevoModelo) {
         this.#modelo = nuevoModelo;
     }
 
