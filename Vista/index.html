@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" type="module" defer></script>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
@@ -15,7 +16,6 @@
         <datalist id="modelo">
         </datalist><br>
 
-        
         <input type="number" name="" placeholder="minVelocidad" id="minVel"><br>
         <input type="number" name="" placeholder="maxVelocidad" id="maxVel"><br>
         <select name="tipoTraccion" id="tipoTraccion" placeholder="Tipo Traccion">
@@ -36,13 +36,16 @@
     </div>
     <div>
         <h2>Gestion de Participantes</h2>
-        <input type="text" id="nombreParticipante" placeholder="Nombre"><br>
+        <input type="text" list="dataListParticipantes" id="nombreParticipante" placeholder="Nombre"><br>
+        <datalist id="dataListParticipantes">
+        </datalist><br>
         <select name="" id="vehiculoParticipante" placeholder="Vehiculo">
-            <option value="prueba">prueba</option>
         </select><br>
-        <input id="estadisticasParticipante" type="text" placeholder="Estadisticas"><br>
+        <input id="estadisticasParticipante" type="text" placeholder="Estadisticas" disabled><br>
         <button id="btnNuevoParticipante" type="button">Nuevo Participante</button>
         <button type="button">Cargar Estadisticas </button>
+        <div id="divMessageParticipante"></div>
+
     </div>
 
     <div>
@@ -60,14 +63,13 @@
 
     <div>
         <h2>Asigna/Quitar un participante al Circuito</h2>
-
         <select name="asignarCircuito" id="asignarCircuito" placeholder="Circuito">
         </select><br>
         <select name="asignarParticipante" id="asignarParticipante" placeholder="asignarParticipante">
         </select><br>
         <button id="btnAsignar" type="button">Asignar</button>
         <button id="btnQuitar" type="button">Quitar</button>
-        <div id="divMessageCircuito"></div>
+        <div></div>
     </div>
 </body>
 

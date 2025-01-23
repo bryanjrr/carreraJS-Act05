@@ -14,15 +14,15 @@ export class Circuito {
         }
     }
 
-    get getNombre() {
+    get nombre() {
         return this.#nombre;
     }
 
-    get getTiempo() {
+    get tiempo() {
         return this.#tiempo;
     }
 
-    get getLongitud() {
+    get longitud() {
         return this.#longitud;
     }
 

@@ -1,7 +1,7 @@
 
 /* Recoger Valores Coche */
 import { Coche } from "../Modelo/Vehiculos/Coche.js";
-import { Vehiculo } from "../Modelo/Vehiculos/Vehiculo.js";
+import { Vehiculo } from "../Modelo/Vehiculos/vehiculo.js";
 import { Participante } from "../Modelo/Participantes/Participante.js";
 import { Motocicleta } from "../Modelo/Vehiculos/motocicleta.js";/* import { Coche } from "../Modelo/Vehiculos/coche.js";
  */
@@ -11,6 +11,7 @@ document.getElementById("btnVehiculo").addEventListener("click", nuevoVehiculo);
 
 let vehiculos = [];
 let participantes = [];
+let circuitos = [];
 
 function nuevoVehiculo() {
     let divError = document.getElementById("divMessage");
@@ -28,17 +29,18 @@ function nuevoVehiculo() {
             case "coche":
                 let coche = new Coche(modelo, tipoTraccion, min, max, tipoVehiculo)
                 vehiculos.push(coche)
-                actualizarSelect(vehiculos, vehiculoParticipante)
+
                 break;
             case "motocicleta":
                 let moto = new Motocicleta(modelo, tipoTraccion, min, max, tipoVehiculo);
                 console.log(moto)
-                actualizarSelect(vehiculos, vehiculoParticipante)
                 moto.movimiento();
                 break;
         }
+        actualizarSelect("vehiculoParticipante", vehiculos, "modelo")
+        actualizarSelect("modelo", vehiculos, "modelo")
 
-        console.log
+
         divMessage.innerHTML = "<p> Vehiculo Creado Correctamente!</p>";
 
 
@@ -47,34 +49,40 @@ function nuevoVehiculo() {
         divMessage.innerHTML = "<p>" + e.message + "</p>";
     }
 }
-
-function actualizarSelect(array, select) {
+/** Descripcoio funcio
+ * 
+ * @param {*} selectId 
+ * @param {*} array 
+ * @param {*} info "modelo" o "nombre"
+ */
+function actualizarSelect(selectId, array, info) {
+    let select = document.getElementById(selectId);
     select.innerHTML = "";
+
     array.forEach((element) => {
-        if (element instanceof Participante) {
-            select.innerHTML += "<option value=" + element.modelo + ">" + element.nombre + " | " + element.vehiculo + "</option>";
-        }else{}
-        select.innerHTML += "<option value=" + element.modelo + ">" + element.modelo + "</option>";
+        console.log("info = " + element[info]);
+        select.innerHTML += "<option value=" + element[info] + ">" + element[info] + "</option>";
     });
+
 }
 
 document.getElementById("nuevaCarrera").addEventListener("click", function () {
     let divMessage = document.getElementById("divMessageCircuito");
     console.log("prueba")
-
+    
     try {
         divMessage.innerHTML = "";
-
         let nombre = document.getElementById("nombreCarrera").value;
         let longitud = parseInt(document.getElementById("longitud").value);
         let tiempo = document.getElementById("tiempo").value;
 
         let circuito = new Circuito(nombre, tiempo, longitud);
-
+        circuitos.push(circuito);
         divMessage.innerHTML = "<p> Circuito Generado Correctamente!</p>";
         console.log(circuito)
+        actualizarSelect("asignarCircuito", circuitos, "nombre")
     } catch (e) {
-        let divMessage = document.getElementById("divMessage");
+        let divMessage = document.getElementById("divMessageCircuito");
         divMessage.innerHTML = "<p>" + e.message + "</p>";
     }
 
@@ -84,32 +92,15 @@ document.getElementById("nuevaCarrera").addEventListener("click", function () {
 
 /* Crear */
 document.getElementById("btnNuevoParticipante").addEventListener("click", nuevoParticipante);
-
 function nuevoParticipante() {
 
-    let nombre = document.getElementById("nombreParticipante");
-
-    let vehiculo = document.getElementById("vehiculoParticipante");
-
-    let participante = new Participante(nombre, vehiculo, null)
-
+    let divMessage = document.getElementById("divMessageParticipante");
+    divMessage.innerHTML = "";
+    let nombre = document.getElementById("nombreParticipante").value;
+    let vehiculo = document.getElementById("vehiculoParticipante").value;
+    let participante = new Participante(nombre, vehiculo);
     participantes.push(participante);
-
-    actualizarSelect(participantes, asignarParticipante)
-
-
-
-
-
-
-
+    actualizarSelect("dataListParticipantes", participantes, "nombre");
+    actualizarSelect("asignarParticipante", participantes, "nombre");
+    divMessage.innerHTML = "<p> Participante Creado Correctamente!</p>";
 }
-
-
-document.getElementById("btnNuevoParticipante").addEventListener("click", nuevoParticipante())
-
-
-
-
-
-

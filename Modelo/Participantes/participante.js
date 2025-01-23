@@ -11,7 +11,7 @@ export class Participante {
     }
 
     get nombre() {
-        this.#nombre;
+        return this.#nombre;
     }
 
     set nombre(nombre) {
@@ -19,7 +19,7 @@ export class Participante {
     }
 
     get vehiculo() {
-        this.#vehiculo;
+        return this.#vehiculo;
     }
 
     set vehiculo(vehiculo) {
@@ -27,7 +27,7 @@ export class Participante {
     }
 
     get estadisticas() {
-        this.#estadisticas;
+        return this.#estadisticas;
     }
 
     set estadisticas(estadisticas) {
