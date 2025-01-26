@@ -4,7 +4,6 @@ import { Circuito } from "../Pista/Circuito.js";
 export class Motocicleta extends Vehiculo {
     movimiento(pista) {
         let movimiento = Math.floor(Math.random() * super.avanceMax) + super.avanceMin;
-        console.log("movimiento: " + movimiento);
 
         switch (super.traccion) {
             case "dura":
