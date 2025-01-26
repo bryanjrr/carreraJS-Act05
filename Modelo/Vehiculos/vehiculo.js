@@ -10,13 +10,13 @@ export class Vehiculo {
         this.#traccion = traccion;
         this.#tipoVehiculo = tipovehiculo;
 
-        if (avanceMin < 1 && avanceMin > 50) {
+        if (avanceMin < 1 || avanceMin > 50) {
             throw new Error("La velocidad minima del vehiculo tiene que ser superior a 0")
         } else {
             this.#avanceMin = avanceMin;
         }
 
-        if (avanceMax < 51 && avanceMax >= 200) {
+        if (avanceMax < 51 || avanceMax >= 200) {
             throw new Error("La velocidad maxima del coche debe ser inferior a 200")
         } else {
             this.#avanceMax = avanceMax;
