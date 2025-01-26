@@ -51,7 +51,13 @@ export class Vehiculo {
         this.#avanceMax = nuevoAvanceMax;
     }
 
-    movimiento() {
-        let movimiento = Math.floor(Math.random() * super.avanceMax) + super.avanceMin;
+    get tipoVehiculo() {
+        return this.#tipoVehiculo;
     }
+
+    movimiento() {
+        let movimiento = Math.floor(Math.random() * this.avanceMax) + this.avanceMin;
+        return movimiento;
+    }
+    
 }
