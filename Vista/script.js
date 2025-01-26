@@ -1,5 +1,4 @@
 
-/* Recoger Valores Coche */
 import { Coche } from "../Modelo/Vehiculos/Coche.js";
 import { Vehiculo } from "../Modelo/Vehiculos/vehiculo.js";
 import { Participante } from "../Modelo/Participantes/Participante.js";
@@ -66,8 +65,7 @@ function nuevoVehiculo() {
                     break;
                 case "motocicleta":
                     let moto = new Motocicleta(modelo, tipoTraccion, min, max, tipoVehiculo);
-                    console.log(moto)
-                    moto.movimiento();
+                    vehiculos.push(moto)
                     break;
             }
             actualizarSelect("vehiculoParticipante", vehiculos, "modelo")
